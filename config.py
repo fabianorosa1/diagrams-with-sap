@@ -91,7 +91,7 @@ UPPER_WORDS = {
     "openstack": ("rpm", "loci", "nfv", "ec2api"),
     "pve": ("pve"),
     "ibm": ("ibm"),
-    "sap": ("sap", "btp", "hana", "api"),
+    "sap": ("sap", "btp", "hana", "api", "s4hana"),
 }
 
 TITLE_WORDS = {
@@ -474,5 +474,5 @@ ALIASES = {
             "Tripleo": "TripleO",
         }
     },
-    "sap": {}
+    "sap": { }
 }
