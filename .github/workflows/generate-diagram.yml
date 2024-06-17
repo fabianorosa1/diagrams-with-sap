@@ -2,9 +2,6 @@ name: Generate diagram
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - master
 
 jobs:
   diagram:
@@ -21,7 +18,6 @@ jobs:
       - name: Generate diagram
         run: |
           poetry install
-          cd diagrams
           poetry build
           poetry install --no-dev
           python tech-byte-diagram.py
