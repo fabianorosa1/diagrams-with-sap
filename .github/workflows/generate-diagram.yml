@@ -1,4 +1,4 @@
-name: Run tests
+name: Generate diagram
 
 on:
   workflow_dispatch:
