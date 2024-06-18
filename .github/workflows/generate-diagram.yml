@@ -13,6 +13,7 @@ jobs:
           python-version: 3.11
       - name: Generate diagram
         run: |
+          sudo apt install graphviz
           pip install graphviz
           python tech-byte-diagram.py
 
