@@ -17,10 +17,16 @@ jobs:
           sudo apt install graphviz
           pip install graphviz          
           python tech-byte-diagram.py
-          ls -ll
+          python onprem_diagram.py
 
-      - name: Upload the generated diagram
+      - name: Upload the generated diagram BTP
         uses: actions/upload-artifact@v4
         with:
-          name: generated-diagram
+          name: generated-diagram-btp
           path: ./my_diagram.jpg
+
+      - name: Upload the generated diagram OnPrem
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-diagram-onprem
+          path: ./onprem_diagram
