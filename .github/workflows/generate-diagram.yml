@@ -15,8 +15,8 @@ jobs:
         run: curl -sSL https://install.python-poetry.org | python3 -
       - name: Generate diagram
         run: |
-          poetry install
           poetry add graphviz
+          poetry install          
           poetry build
           poetry install --no-dev
           python tech-byte-diagram.py
