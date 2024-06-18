@@ -1,7 +1,7 @@
 # diagram.py
 from diagrams import Cluster, Diagram, Edge
 from diagrams.aws.storage import S3
-from diagrams.sap.other import PlaceholderNewServices
+from diagrams.sap.other import PlaceholderServiceName
 from diagrams.sap.integration import IntegrationSuite
 from diagrams.sap.database_datamanagement import SAPHANACloud
 from diagrams.sap.database_datamanagement import ObjectStore
@@ -24,7 +24,7 @@ with Diagram("SAP Tech Byte - Exploring the SAP Audit Log service - Guidelines C
             cloud_integration = IntegrationSuite("Cloud Integration")
             object_store = ObjectStore("Object Store")
 
-            PlaceholderNewServices("Audit Log service") << Edge(label="Retrieves entries", color=FIX_GREY_COLOUR) << \
+            PlaceholderServiceName("Audit Log service") << Edge(label="Retrieves entries", color=FIX_GREY_COLOUR) << \
             cloud_integration >> Edge(color=FIX_GREY_COLOUR) >> SAPHANACloud("HANA Cloud")
             cloud_integration >> Edge(color=FIX_GREY_COLOUR) >> object_store
         
