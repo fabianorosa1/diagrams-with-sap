@@ -10,13 +10,17 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: 3.11
+          python-version: 3.12
+          
       - name: Generate diagram
         run: |
           sudo apt install graphviz
-          pip install graphviz
-          
+          pip install graphviz          
           python tech-byte-diagram.py
-
           ls -ll
 
+      - name: Upload the generated diagram
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-diagram
+          path: ./sap_tech_byte_-_exploring_the_sap_audit_log_service_-_guidelines_colours.png
