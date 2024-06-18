@@ -18,7 +18,7 @@ SUCCESS_FILLED_COLOUR = "#F5FAE5"
 FIX_GREY_COLOUR = "#7F7F7F"
 NON_SAP_AREA_COLOUR = "#595959"
 
-with Diagram("SAP Tech Byte - Exploring the SAP Audit Log service - Guidelines Colours", show=False):
+with Diagram("SAP Tech Byte - Exploring the SAP Audit Log service - Guidelines Colours", show=False, outformat="jpg", filename="my_diagram"):
     with Cluster("SAP Business Technology Platform", graph_attr= {"bgcolor": L0_FILLED_COLOUR, "pencolor": L0_BLUE_COLOUR}):
         with Cluster("Subaccount", graph_attr= {"bgcolor": "white", "pencolor": L1_BLUE_COLOUR}):
             cloud_integration = IntegrationSuite("Cloud Integration")
