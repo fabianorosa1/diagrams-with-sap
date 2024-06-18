@@ -23,4 +23,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: generated-diagram
-          path: ./sap_tech_byte_-_exploring_the_sap_audit_log_service_-_guidelines_colours.png
+          path: ./my_diagram.jpg
