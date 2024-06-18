@@ -15,5 +15,8 @@ jobs:
         run: |
           sudo apt install graphviz
           pip install graphviz
+          
           python tech-byte-diagram.py
+
+          ls -ll
 
