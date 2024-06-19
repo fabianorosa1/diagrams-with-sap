@@ -19,10 +19,18 @@ SUCCESS_FILLED_COLOUR = "#F5FAE5"
 FIX_GREY_COLOUR = "#7F7F7F"
 NON_SAP_AREA_COLOUR = "#595959"
 
-with Diagram("SAP Tech Byte - Exploring the SAP Audit Log service - Guidelines Colours", show=False, outformat="jpg", filename="my_diagram"):
+with Diagram("CIS Landscape", show=False, outformat="jpg", filename="my_diagram"):
     with Cluster("SAP Cloud Identity Services", graph_attr= {"bgcolor": L0_FILLED_COLOUR, "pencolor": L0_BLUE_COLOUR, "fontname": "Verdana", "fontsize": "16"}):
         with Cluster("SAP IAS", graph_attr= {"bgcolor": "white", "pencolor": L1_BLUE_COLOUR, "fontname": "Verdana", "fontsize": "16"}):
-            sap_ips = IdentityProvisioning("CIS_SHELL_INO")
+            sap_ias_ino = IdentityProvisioning("CIS_SHELL_INO")
+        with Cluster("SAP IAS", graph_attr= {"bgcolor": "white", "pencolor": L1_BLUE_COLOUR, "fontname": "Verdana", "fontsize": "16"}):
+            sap_ias_dev = IdentityProvisioning("CIS_SHELL_DEV")    
+        with Cluster("SAP IAS", graph_attr= {"bgcolor": "white", "pencolor": L1_BLUE_COLOUR, "fontname": "Verdana", "fontsize": "16"}):
+            sap_ias_acc = IdentityProvisioning("CIS_SHELL_ACC")   
+        with Cluster("SAP IAS", graph_attr= {"bgcolor": "white", "pencolor": L1_BLUE_COLOUR, "fontname": "Verdana", "fontsize": "16"}):
+            sap_ias_ppd = IdentityProvisioning("CIS_SHELL_PPD")   
+        with Cluster("SAP IAS", graph_attr= {"bgcolor": "white", "pencolor": L1_BLUE_COLOUR, "fontname": "Verdana", "fontsize": "16"}):
+            sap_ias_prd = IdentityProvisioning("CIS_SHELL_PRD")   
             
     with Cluster("SAP Business Technology Platform", graph_attr= {"bgcolor": L0_FILLED_COLOUR, "pencolor": L0_BLUE_COLOUR}):
         with Cluster("Subaccount", graph_attr= {"bgcolor": "white", "pencolor": L1_BLUE_COLOUR}):
