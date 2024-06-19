@@ -5,6 +5,7 @@ from diagrams.sap.other import PlaceholderServiceName
 from diagrams.sap.integration import IntegrationSuite
 from diagrams.sap.database_datamanagement import SAPHANACloud
 from diagrams.sap.database_datamanagement import ObjectStore
+from diagrams.sap.security import ObjectStore
 
 # SAP BTP Solution Diagrams and Icons guidelines colours
 L0_BLUE_COLOUR = "#0070F2"
@@ -19,6 +20,10 @@ FIX_GREY_COLOUR = "#7F7F7F"
 NON_SAP_AREA_COLOUR = "#595959"
 
 with Diagram("SAP Tech Byte - Exploring the SAP Audit Log service - Guidelines Colours", show=False, outformat="jpg", filename="my_diagram"):
+    with Cluster("SAP Cloud Identity Services", graph_attr= {"bgcolor": L0_FILLED_COLOUR, "pencolor": L0_BLUE_COLOUR},"fontname": "Verdana", "fontsize": "16"):
+        with Cluster("SAP IAS", graph_attr= {"bgcolor": "white", "pencolor": L1_BLUE_COLOUR}):
+            cloud_integration = IdentityProvisioning("CIS_SHELL_INO")
+            
     with Cluster("SAP Business Technology Platform", graph_attr= {"bgcolor": L0_FILLED_COLOUR, "pencolor": L0_BLUE_COLOUR}):
         with Cluster("Subaccount", graph_attr= {"bgcolor": "white", "pencolor": L1_BLUE_COLOUR}):
             cloud_integration = IntegrationSuite("Cloud Integration")
