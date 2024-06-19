@@ -25,7 +25,10 @@ with Diagram("CIS Landscape", show=False, outformat="jpg", filename="my_diagram"
         with Cluster("SAP IAS", graph_attr= {"bgcolor": "white", "pencolor": L1_BLUE_COLOUR, "fontname": "Verdana", "fontsize": "16"}):
             sap_ias_ino = IdentityProvisioning("CIS_SHELL_INO")
 
-        sap_ias_ino >> Edge(label="uses", color=FIX_GREY_COLOUR, style="dotted") >> SAPAnalyticsCloud("SAC Preview")
+    SAPAnalyticsCloud("SAC Preview A") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted") >> sap_ias_ino
+    SAPAnalyticsCloud("SAC Preview B") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted") >> sap_ias_ino
+    SAPAnalyticsCloud("SAC Preview C") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted") >> sap_ias_ino
+    SAPAnalyticsCloud("SAC Preview D") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted") >> sap_ias_ino
     
     with Cluster("SAP Business Technology Platform", graph_attr= {"bgcolor": L0_FILLED_COLOUR, "pencolor": L0_BLUE_COLOUR}):
         with Cluster("Subaccount", graph_attr= {"bgcolor": "white", "pencolor": L1_BLUE_COLOUR}):
