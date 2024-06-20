@@ -7,6 +7,7 @@ from diagrams.sap.database_datamanagement import SAPHANACloud
 from diagrams.sap.database_datamanagement import ObjectStore
 from diagrams.sap.security import IdentityProvisioning
 from diagrams.sap.analytics import SAPAnalyticsCloud
+from diagrams.sap.runtimes import CloudFoundryRuntime
 
 # SAP BTP Solution Diagrams and Icons guidelines colours
 L0_BLUE_COLOUR = "#0070F2"
@@ -25,19 +26,19 @@ with Diagram("CIS Landscape", show=False, outformat="jpg", filename="my_diagram"
         with Cluster("SAP IAS", graph_attr= {"bgcolor": "white", "pencolor": L1_BLUE_COLOUR, "fontname": "Verdana", "fontsize": "16"}):
             sap_ias_ino = IdentityProvisioning("CIS_SHELL_INO")
 
-    SAPAnalyticsCloud("SAC Preview A") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted") >> sap_ias_ino
-    SAPAnalyticsCloud("SAC Preview B") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted") >> sap_ias_ino
-    SAPAnalyticsCloud("SAC Preview C") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted") >> sap_ias_ino
-    SAPAnalyticsCloud("SAC Preview D") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted") >> sap_ias_ino
+    SAPAnalyticsCloud("CISA_SAC_SACPREVIEW") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted") >> sap_ias_ino
+    CloudFoundryRuntime("CISA_BTPCF_DSPHERE_POC") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted") >> sap_ias_ino
+    CloudFoundryRuntime("CISA_BTPCF_INO_IPS_PERSONAS_POC") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted") >> sap_ias_ino
+    CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_OPEX_EU20") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted") >> sap_ias_ino
     
-    with Cluster("SAP Business Technology Platform", graph_attr= {"bgcolor": L0_FILLED_COLOUR, "pencolor": L0_BLUE_COLOUR}):
-        with Cluster("Subaccount", graph_attr= {"bgcolor": "white", "pencolor": L1_BLUE_COLOUR}):
-            cloud_integration = IntegrationSuite("Cloud Integration")
-            object_store = ObjectStore("Object Store")
+    # with Cluster("SAP Business Technology Platform", graph_attr= {"bgcolor": L0_FILLED_COLOUR, "pencolor": L0_BLUE_COLOUR}):
+    #     with Cluster("Subaccount", graph_attr= {"bgcolor": "white", "pencolor": L1_BLUE_COLOUR}):
+    #         cloud_integration = IntegrationSuite("Cloud Integration")
+    #        object_store = ObjectStore("Object Store")
 
-            PlaceholderServiceName("Audit Log service") << Edge(label="Retrieves entries", color=FIX_GREY_COLOUR) << \
-            cloud_integration >> Edge(color=FIX_GREY_COLOUR) >> SAPHANACloud("HANA Cloud")
-            cloud_integration >> Edge(color=FIX_GREY_COLOUR) >> object_store
+    #         PlaceholderServiceName("Audit Log service") << Edge(label="Retrieves entries", color=FIX_GREY_COLOUR) << \
+    #         cloud_integration >> Edge(color=FIX_GREY_COLOUR) >> SAPHANACloud("HANA Cloud")
+    #         cloud_integration >> Edge(color=FIX_GREY_COLOUR) >> object_store
         
-    with Cluster("AWS", graph_attr= {"bgcolor": "white", "pencolor": NON_SAP_AREA_COLOUR}):
-        object_store >> Edge(label="uses", color=FIX_GREY_COLOUR, style="dotted") >> S3("S3 Bucket")
+    # with Cluster("AWS", graph_attr= {"bgcolor": "white", "pencolor": NON_SAP_AREA_COLOUR}):
+    #     object_store >> Edge(label="uses", color=FIX_GREY_COLOUR, style="dotted") >> S3("S3 Bucket")
