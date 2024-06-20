@@ -21,7 +21,7 @@ SUCCESS_FILLED_COLOUR = "#F5FAE5"
 FIX_GREY_COLOUR = "#7F7F7F"
 NON_SAP_AREA_COLOUR = "#595959"
 
-with Diagram("CIS Landscape", show=False, outformat="jpg", filename="my_diagram", direction="TB"):
+with Diagram("CIS Landscape", show=False, outformat="jpg", filename="my_diagram"):
     with Cluster("SAP Cloud Identity Services", graph_attr= {"bgcolor": L0_FILLED_COLOUR, "pencolor": L0_BLUE_COLOUR, "fontname": "Verdana", "fontsize": "16"}):
         with Cluster("SAP IAS", graph_attr= {"bgcolor": "white", "pencolor": L1_BLUE_COLOUR, "fontname": "Verdana", "fontsize": "16"}):
             sap_ias_ino = IdentityProvisioning("CIS_SHELL_INO")
