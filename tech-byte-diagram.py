@@ -8,6 +8,7 @@ from diagrams.sap.database_datamanagement import ObjectStore
 from diagrams.sap.security import IdentityProvisioning
 from diagrams.sap.analytics import SAPAnalyticsCloud
 from diagrams.sap.runtimes import CloudFoundryRuntime
+from diagrams.sap.database_datamanagement import SAPHANACloud
 
 # SAP BTP Solution Diagrams and Icons guidelines colours
 L0_BLUE_COLOUR = "#0070F2"
@@ -26,24 +27,24 @@ with Diagram("CIS Landscape", show=False, outformat="jpg", filename="my_diagram"
         with Cluster("SAP IAS", graph_attr= {"bgcolor": "white", "pencolor": L1_BLUE_COLOUR, "fontname": "Verdana", "fontsize": "16"}):
             sap_ias_ino = IdentityProvisioning("CIS_SHELL_INO")
 
-    with Cluster("Applications"): 
-        [SAPAnalyticsCloud("CISA_SAC_SACPREVIEW") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted"),
-        CloudFoundryRuntime("CISA_BTPCF_DSPHERE_POC") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted"),
-        CloudFoundryRuntime("CISA_BTPCF_INO_IPS_PERSONAS_POC") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted"),
-        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_OPEX_EU20") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted"),
+    with Cluster("Applications registered in CIS IAS"): 
+        [SAPAnalyticsCloud("CISA_SAC_SACPREVIEW") >> Edge(label="use", color=FIX_GREY_COLOUR, style="dotted"),
+        CloudFoundryRuntime("CISA_BTPCF_DSPHERE_POC") >> Edge(label="use", color=FIX_GREY_COLOUR, style="dotted"),
+        CloudFoundryRuntime("CISA_BTPCF_INO_IPS_PERSONAS_POC") >> Edge(label="use", color=FIX_GREY_COLOUR, style="dotted"),
+        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_OPEX_EU20") >> Edge(label="use", color=FIX_GREY_COLOUR, style="dotted"),
 
-        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_OPEX_EU20") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted"),
-        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_OPEX_EU20") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted"),
-        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_OPEX_EU20") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted"),
-        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_OPEX_EU20") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted"),
-        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_OPEX_EU20") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted"),
-        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_OPEX_EU20") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted"),
-        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_OPEX_EU20") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted"),
-        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_OPEX_EU20") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted"),
-        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_OPEX_EU20") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted"),
-        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_OPEX_EU20") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted"),
-        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_OPEX_EU20") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted"),
-        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_OPEX_EU20") >> Edge(label="registered", color=FIX_GREY_COLOUR, style="dotted")] >> sap_ias_ino
+        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_SBX") >> Edge(label="use", color=FIX_GREY_COLOUR, style="dotted"),
+        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_INTS_EU20") >> Edge(label="use", color=FIX_GREY_COLOUR, style="dotted"),
+        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_ETM_NEXT_POC") >> Edge(label="use", color=FIX_GREY_COLOUR, style="dotted"),
+        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_DSPHERE_POC") >> Edge(label="use", color=FIX_GREY_COLOUR, style="dotted"),
+        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_BUILDAPPS_POC") >> Edge(label="use", color=FIX_GREY_COLOUR, style="dotted"),
+        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_OPEX_EU20") >> Edge(label="use", color=FIX_GREY_COLOUR, style="dotted"),
+        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_OPEX_EU20") >> Edge(label="use", color=FIX_GREY_COLOUR, style="dotted"),
+        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_OPEX_EU20") >> Edge(label="use", color=FIX_GREY_COLOUR, style="dotted"),
+        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_OPEX_EU20") >> Edge(label="use", color=FIX_GREY_COLOUR, style="dotted"),
+        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_OPEX_EU20") >> Edge(label="use", color=FIX_GREY_COLOUR, style="dotted"),
+        CloudFoundryRuntime("CISA_BTPCF_INO_SHELL_CF_OPEX_EU20") >> Edge(label="use", color=FIX_GREY_COLOUR, style="dotted"),
+        SAPHANACloud("CISA_HANADBCF_INO_SHELL_CF_HDB") >> Edge(label="use", color=FIX_GREY_COLOUR, style="dotted")] >> sap_ias_ino
     
     # with Cluster("SAP Business Technology Platform", graph_attr= {"bgcolor": L0_FILLED_COLOUR, "pencolor": L0_BLUE_COLOUR}):
     #     with Cluster("Subaccount", graph_attr= {"bgcolor": "white", "pencolor": L1_BLUE_COLOUR}):
