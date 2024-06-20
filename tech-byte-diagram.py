@@ -23,8 +23,8 @@ FIX_GREY_COLOUR = "#7F7F7F"
 NON_SAP_AREA_COLOUR = "#595959"
 
 with Diagram("CIS Landscape", show=False, outformat="jpg", filename="my_diagram"):
-    with Cluster("SAP Cloud Identity Services", graph_attr= {"bgcolor": L0_FILLED_COLOUR, "pencolor": L0_BLUE_COLOUR, "fontname": "Verdana", "fontsize": "16"}):
-        with Cluster("SAP IAS", graph_attr= {"bgcolor": "white", "pencolor": L1_BLUE_COLOUR, "fontname": "Verdana", "fontsize": "16"}):
+    with Cluster("SAP Cloud Identity Services (CIS)", graph_attr= {"bgcolor": L0_FILLED_COLOUR, "pencolor": L0_BLUE_COLOUR, "fontname": "Verdana", "fontsize": "16"}):
+        with Cluster("SAP Cloud Identity Services - Identity Authentication (IAS)", graph_attr= {"bgcolor": "white", "pencolor": L1_BLUE_COLOUR, "fontname": "Verdana", "fontsize": "16"}):
             sap_ias_ino = IdentityProvisioning("CIS_SHELL_INO")
 
     with Cluster("Applications registered in CIS IAS"): 
